@@ -29,11 +29,7 @@ class Tab extends React.Component {
         <Direction />
         <table className="tabs">
           <Head />
-          {filtredFlights.length === 0 ? (
-            <FlightNotFound />
-          ) : (
-            <FlightInfo flight={filtredFlights} />
-          )}
+          <FlightInfo flight={filtredFlights} />
         </table>
       </div>
     );
