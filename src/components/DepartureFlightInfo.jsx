@@ -2,7 +2,7 @@ import React from "react";
 import { clock } from "../flight.Gateway";
 const dot = require("dot-object");
 
-const FlightInfo = ({ flight }) => {
+const DepartureFlightInfo = ({ flight }) => {
   const fligeArray = flight.map((flt) => dot.object(flt));
 
   const blue = "#1eb7ee";
@@ -29,7 +29,7 @@ const FlightInfo = ({ flight }) => {
             </td>
             <td className="flight-data__data">
               <span className="flight-data__way">
-                {flt.airportFromID.city_en}
+                {flt.airportToID.name}
               </span>
             </td>
             <td className="flight-data__data">
@@ -59,4 +59,4 @@ const FlightInfo = ({ flight }) => {
   );
 };
 
-export default FlightInfo;
+export default DepartureFlightInfo;

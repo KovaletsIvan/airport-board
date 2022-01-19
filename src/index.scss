@@ -89,17 +89,21 @@ body {
   height: 60px;
   width: 100%;
   margin-top: 40px;
-  background-color: $bg-white-color;
-  border-radius: 50px 50px 0 0;
   font-size: 24px;
 
-  &-link {
+  &-link__departure {
     text-decoration: none;
-    margin-left: 10px;
+    text-decoration: none;
+    color: $text-white-color;
+  }
 
-    &__png {
-      margin-right: 15px;
-    }
+  &-link__arrivals {
+    color: $blue-color;
+    text-decoration: none;
+  }
+
+  &-link__png {
+    margin-right: 15px;
   }
 
   &-arrivals {
@@ -107,8 +111,13 @@ body {
     justify-content: center;
     align-items: center;
     width: 50%;
+    border-radius: 0px 50px 0 0;
+    background-color: $text-white-color;
   }
   &-departures {
+    background-color: $blue-color;
+    color: $text-white-color;
+    border-radius: 50px 0px 0 0;
     width: 50%;
     display: flex;
     justify-content: center;

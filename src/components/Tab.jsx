@@ -4,7 +4,8 @@ import { recivedFlights } from "../flight.actions";
 import { curentDate } from "../flight.Gateway";
 import Head from "./Head";
 import Direction from "./Direction";
-import FlightInfo from "./FlightInfo";
+import ArrivalsFlightInfo from "./ArrivalsFlightInfo";
+import DepartureFlightInfo from "./DepartureFlightInfo";
 import FlightNotFound from "./FlightNotFound";
 import * as selectorts from "../flight.selectors";
 
@@ -14,22 +15,39 @@ class Tab extends React.Component {
   }
 
   render() {
-    const { arrival, departure, searchedFlight } = this.props;
+    const {
+      arrivals,
+      departures,
+      getSearchedDeparture,
+      getSearchedArrival,
+      searchFlight,
+    } = this.props;
 
-    const flights = searchedFlight.length === 0 ? arrival : searchedFlight;
+    const arrivalsFlights =
+      searchFlight.length === 0 ? arrivals : getSearchedArrival;
+    const departuresFlights =
+      searchFlight.length === 0 ? departures : getSearchedDeparture;
 
-    const filtredFlights = flights
+
+    const filtredArrivals = arrivalsFlights
       .filter(
         (elem) => new Date(elem.actual).getDate() === new Date().getDate()
       )
       .sort((a, b) => new Date(a.actual) - new Date(b.actual));
 
+    const filtredDepartures = departuresFlights
+      .filter(
+        (elem) => new Date(elem.actual).getDate() === new Date().getDate()
+      )
+      .sort((a, b) => new Date(a.actual) - new Date(b.actual));
+        
     return (
       <div className="container">
         <Direction />
         <table className="tabs">
           <Head />
-          <FlightInfo flight={filtredFlights} />
+          <DepartureFlightInfo flight={filtredDepartures} />
+          <ArrivalsFlightInfo flight={filtredArrivals} />
         </table>
       </div>
     );
@@ -42,9 +60,11 @@ const mapDispatch = {
 
 const mapState = (state) => {
   return {
-    arrival: selectorts.arreval(state),
-    departure: selectorts.departure(state),
-    searchedFlight: selectorts.getSearchedFlight(state),
+    arrivals: selectorts.arrival(state),
+    departures: selectorts.departure(state),
+    searchFlight: selectorts.searchedFlight(state),
+    getSearchedDeparture: selectorts.getSearchedDeparture(state),
+    getSearchedArrival: selectorts.getSearchedArrival(state),
   };
 };
 

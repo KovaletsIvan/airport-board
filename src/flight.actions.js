@@ -11,15 +11,15 @@ export const getFligts = (flights) => {
   };
 };
 
-export const fligtToSearch = (flight) => {
+export const flightToSearch = (flight) => {
   return {
     type: FLIGHT__SEARCH,
     payload: { flight },
   };
 };
 
-export const flightSearch = (flight) => {
-  store.dispatch(fligtToSearch(flight));
+export const flightPushData = (flight) => {
+  store.dispatch(flightToSearch(flight));
 };
 
 export const recivedFlights = (date) => {

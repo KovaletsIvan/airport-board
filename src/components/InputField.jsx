@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { flightSearch } from "../flight.actions";
+import { flightPushData } from "../flight.actions";
 
 const InputField = () => {
   const [value, setValue] = useState("");
@@ -14,12 +14,12 @@ const InputField = () => {
       <input
         className="input-field__input"
         type="text"
-        placeholder="Airline, dastination or flight# "
+        placeholder="Airline, destination or flight# "
         onChange={(e) => setValue(e.target.value)}
       />
       <button
         className="btn input-field__btn"
-        onClick={() => flightSearch(value)}
+        onClick={() => flightPushData(value)}
       >
         SEARCH
       </button>
@@ -28,7 +28,7 @@ const InputField = () => {
 };
 
 const mapDispatch = {
-  flightSearch: flightSearch,
+  flightPushData: flightPushData,
 };
 
 export default connect(null, mapDispatch)(InputField);
