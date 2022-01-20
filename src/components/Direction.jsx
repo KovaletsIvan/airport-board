@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Direction = () => {
   return (
-    <div className="direction">
+    <ul className="direction">
       <li className="direction-departures">
         <Link to="/" className="direction-link__departure">
           <span className="direction-link__png">
@@ -20,7 +20,7 @@ const Direction = () => {
           ARRIVALS
         </Link>
       </li>
-    </div>
+    </ul>
   );
 };
 export default Direction;

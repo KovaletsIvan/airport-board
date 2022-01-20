@@ -44,21 +44,23 @@ class Tab extends React.Component {
     return (
       <div className="container">
         <BrowserRouter>
-          <Direction />
-          <table className="tabs">
-            <Head />
-            <Switch>
-              <Route exect path="/">
-                <DepartureFlightInfo flight={filtredDepartures} />
-              </Route>
-              <Route path="/arrivals">
-                <ArrivalsFlightInfo flight={filtredArrivals} />
-              </Route>
-              <Route path="*">
-                <FlightNotFound />
-              </Route>
-            </Switch>
-          </table>
+          <React.StrictMode>
+            <Direction />
+            <table className="tabs">
+              <Head />
+              <Switch>
+                <Route exact path="/">
+                  <DepartureFlightInfo flight={filtredDepartures} />
+                </Route>
+                <Route path="/arrivals">
+                  <ArrivalsFlightInfo flight={filtredArrivals} />
+                </Route>
+                <Route path="*">
+                  <FlightNotFound />
+                </Route>
+              </Switch>
+            </table>
+          </React.StrictMode>
         </BrowserRouter>
       </div>
     );
