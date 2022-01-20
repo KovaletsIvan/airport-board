@@ -29,7 +29,7 @@ const ArrivalsFlightInfo = ({ flight }) => {
             </td>
             <td className="flight-data__data">
               <span className="flight-data__way">
-                {flt.airportFromID.name_en}
+                {flt.airportFromID.name}
               </span>
             </td>
             <td className="flight-data__data">

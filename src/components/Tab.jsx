@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import { recivedFlights } from "../flight.actions";
 import { curentDate } from "../flight.Gateway";
@@ -28,7 +29,6 @@ class Tab extends React.Component {
     const departuresFlights =
       searchFlight.length === 0 ? departures : getSearchedDeparture;
 
-
     const filtredArrivals = arrivalsFlights
       .filter(
         (elem) => new Date(elem.actual).getDate() === new Date().getDate()
@@ -40,15 +40,26 @@ class Tab extends React.Component {
         (elem) => new Date(elem.actual).getDate() === new Date().getDate()
       )
       .sort((a, b) => new Date(a.actual) - new Date(b.actual));
-        
+
     return (
       <div className="container">
-        <Direction />
-        <table className="tabs">
-          <Head />
-          <DepartureFlightInfo flight={filtredDepartures} />
-          <ArrivalsFlightInfo flight={filtredArrivals} />
-        </table>
+        <BrowserRouter>
+          <Direction />
+          <table className="tabs">
+            <Head />
+            <Switch>
+              <Route exect path="/">
+                <DepartureFlightInfo flight={filtredDepartures} />
+              </Route>
+              <Route path="/arrivals">
+                <ArrivalsFlightInfo flight={filtredArrivals} />
+              </Route>
+              <Route path="*">
+                <FlightNotFound />
+              </Route>
+            </Switch>
+          </table>
+        </BrowserRouter>
       </div>
     );
   }

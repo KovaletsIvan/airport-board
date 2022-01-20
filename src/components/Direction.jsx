@@ -5,7 +5,7 @@ const Direction = () => {
   return (
     <div className="direction">
       <li className="direction-departures">
-        <Link className="direction-link__departure" to="#">
+        <Link to="/" className="direction-link__departure">
           <span className="direction-link__png">
             <i className="fas fa-plane-departure"></i>
           </span>
@@ -13,7 +13,7 @@ const Direction = () => {
         </Link>
       </li>
       <li className="direction-arrivals">
-        <Link className="direction-link__arrivals" to="#">
+        <Link to="/arrivals" className="direction-link__arrivals">
           <span className="direction-link__png">
             <i className="fas fa-plane-arrival"></i>
           </span>
