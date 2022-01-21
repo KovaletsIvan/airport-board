@@ -212,3 +212,9 @@ body {
 .flight-data:nth-child(even) {
   background-color: #fff;
 }
+
+.not-found {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}

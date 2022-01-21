@@ -7,7 +7,6 @@ import Head from "./Head";
 import Direction from "./Direction";
 import ArrivalsFlightInfo from "./ArrivalsFlightInfo";
 import DepartureFlightInfo from "./DepartureFlightInfo";
-import FlightNotFound from "./FlightNotFound";
 import * as selectorts from "../flight.selectors";
 
 class Tab extends React.Component {
@@ -54,9 +53,6 @@ class Tab extends React.Component {
                 </Route>
                 <Route path="/arrivals">
                   <ArrivalsFlightInfo flight={filtredArrivals} />
-                </Route>
-                <Route path="*">
-                  <FlightNotFound />
                 </Route>
               </Switch>
             </table>

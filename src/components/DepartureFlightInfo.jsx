@@ -1,4 +1,5 @@
 import React from "react";
+import FlightNotFound from "./FlightNotFound";
 import { clock } from "../flight.Gateway";
 const dot = require("dot-object");
 
@@ -28,9 +29,7 @@ const DepartureFlightInfo = ({ flight }) => {
               <span className="flight-data__time">{clock(flt.actual)}</span>
             </td>
             <td className="flight-data__data">
-              <span className="flight-data__way">
-                {flt.airportToID.name}
-              </span>
+              <span className="flight-data__way">{flt.airportToID.name}</span>
             </td>
             <td className="flight-data__data">
               <span className="flight-data__status">
@@ -55,6 +54,7 @@ const DepartureFlightInfo = ({ flight }) => {
           </tr>
         );
       })}
+      {fligeArray.length === 0 ? <FlightNotFound /> : null}
     </tbody>
   );
 };
